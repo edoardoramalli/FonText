@@ -1,0 +1,138 @@
+@media only screen and (max-width: 768px) {
+    .column{
+        width: 100%;
+	    margin: 0;
+    }
+    .textpropName{
+        font-size: 3vw;
+    }
+    #uppercasetransform, #lowercasetransform, #capitalizetransform {
+        width: 30%;
+        font-size: 2vw;
+    }
+    #solidstyledecoration, #dashedstyledecoration, #dottedstyledecoration, #wavystyledecoration, #doublestyledecoration {
+        width: 18%;
+        font-size: 2.0vw;
+        padding: 0;
+    }
+    #underlinedecoration, #overlinedecoration, #linethroughdecoration,#autojustify,#wordjustify,#caratterejustify {
+        width: 30%;
+        font-size: 2.5vw;
+    }
+    #normalstyle, #italicstyle, #normalvariant, #smallcapsvariant, #ltrdirection, #rtldirection {
+        width: 45%;
+        font-size: 3vw;
+        padding: 0;
+    }
+    .help{
+        font-size: 3vw;
+    }
+    .center{
+        border: none;
+    }
+    .textprop{
+        font-size: 3vw;
+    }
+    .contrast{
+        font-size: 3vw;
+    }
+    #AAlarge, #AAAlarge, #AAAnormal, #AAnormal{
+        font-size: 3vw;
+    }
+    .header{
+        font-size: 10vw;
+        margin-bottom: 5vw;
+    }
+    .column2 {
+        width: 100%;
+    }
+
+
+
+}
+/*HELP / CONTACT */
+@media only screen and (max-height: 500px) {
+    .column{
+        height: 400px;
+    }
+    /*Upload */
+    #drop_zone{padding:5px;}
+    #drop_zone p{
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 390px){
+    .nav{font-size:20px;}
+    .navItem a{
+        padding-left:5px;
+        padding-right:5px;}
+}
+
+@media only screen and (max-height: 600px) {
+    .text, .elenco {
+        font-size: 17px;
+    }
+    .title{
+        font-size:20px;
+    }
+    .header{
+        font-size: 10vh;
+        margin-bottom: 2vh;
+    }
+}
+@media only screen and (max-height: 480px) {
+    #mycss{
+        font-size: 10px;
+    }
+    #normalText,#largeText{
+        font-size: 13px;
+    }
+}
+
+/* UPLOAD */
+
+@media only screen and (max-width: 800px) {
+    .modalbg:target .dialog {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 325px) {
+    .modalbg:target .dialog {
+        width: 85%;
+    }
+
+    .dialog #drop_zone button {
+        margin: 5px 0;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .dialog #rename {
+        width: 194px;
+    }
+}
+
+@media only screen and (max-height: 549px) {
+    .modalbg .dialog {
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (max-height: 340px){
+    #output{
+        font-size:18px;
+    }
+    #drop_zone button{
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width:290px) {
+    .row2 a{
+        font-size: 17px;
+    }
+}

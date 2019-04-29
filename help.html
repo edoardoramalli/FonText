@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FonText</title>
+
+    <link rel="stylesheet" href="css/styleCommon.css">
+    <link rel="stylesheet" href="css/mediaquery.css">
+
+</head>
+<body>
+
+<nav class="nav">
+    <ul class="navList">
+        <li class="navItem" id="home"><a class="navActive" href="index.html">Home</a></li>
+        <li class="navItem" id="aiuto"><a href="help.html">Help</a></li>
+        <li class="navItem" id="lingua"><a href="it/help.html"></a></li>
+        <li class="navItem" id="contatti"><a href="contact.html">About</a></li>
+    </ul>
+</nav>
+<br><br>
+
+
+    <h1 class="title"> Upload a custom font</h1>
+    <div class="text">
+        In order to use a personal font it is necessary to upload its web version.
+        A web-font is a translation of the font that can be interpreted by browsers and is what allow you to
+        visualize writings using a style chosen by the author. Web-font consists of the two following files:
+        <ol>
+            <li>
+                A css that defines the font name and source using the @font-face directive. This file is
+                necessary and sufficient for a correct upload if the source is available online.
+            </li>
+
+            <li>
+                In cases where the source is not available online, the upload system notifies the need to upload
+                this too, that is a .woff or .woff2 file which contains information on how to display
+                the font. <br>
+                The difference between the two formats is related to their compatibility with browsers, woff for older ones and
+                woff2 for newer versions, as shown <a target=_blank  href="https://transfonter.org/formats"> here </a>.
+            </li>
+        </ol>
+        You can easily generate all the necessary files using a generic web-font generation site,
+        such as one of the following:
+        <ul>
+            <li>
+                <a target=_blank  href="https://transfonter.org/">www.transfonter.org</a>
+            </li>
+            <li>
+                <a target=_blank  href="https://www.fontsquirrel.com/tools/webfont-generator">
+                    www.fontsquirrel.com </a>
+            </li>
+        </ul>
+        The upload screen, reached through the button <img alt="icona di upload" id="fakeIcon"
+                                                                       src="img/iconupload.png">
+        on the homepage, display notification of any faults or errors in the files, giving the possibility to rename the font
+        if a conflict occurs with one already present in our archive. <br>
+        The management of uploaded files takes place entirely on Client side: custom fonts remain available
+        until the browser page is closed.
+    </div>
+    <br><br>
+    <div class="separationLine"></div>
+
+    <h1 class="title"> Contrast Check </h1>
+<p class="text">
+    The Web Content Accessibility Guidelines defines a method for calculating contrast using the luminance of a
+    color. Contrast is calculated between two colors, usually between the background color and the color of the text,
+    in order to evaluate and quantify the accessibility of reading a Web page. <br>
+    The contrast ratio goes from a minimum of 1: 1, when the two colors are the same, at 21: 1, when you have white with
+    black. <br>
+    Again according to the standard issued by WCAG 2.0, a large text is defined if the font size is greater or equal to
+    24px; or if it is greater than or equal to 18px and is in bold (at least 700 points in thickness), otherwise you
+    have a normal text. <br>
+    Depending on the ratio obtained we have:
+</p>
+<ol class="elenco" type="I">
+    <li class="listitem"> If the contrast ratio (CR) is greater than 4.5 then you have AA certification for plain text.
+        <br></li>
+    <li class="listitem"> If the CR is greater than 3 and the text is large you get the AA certification. <br></li>
+    <li class="listitem"> If the CR is greater than 7 and the text is normal, the certificate is AAA. <br></li>
+    <li class="listitem"> If the CR is greater than 4.5 and the text is large, it is AAA certified. <br></li>
+</ol>
+
+</body>
+</html>

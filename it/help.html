@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>FonText</title>
+    <link rel="stylesheet" href="../css/styleCommon.css">
+	<link rel="stylesheet" href="../css/mediaquery.css">
+
+
+</head>
+<body>
+<nav class="nav">
+    <ul class="navList">
+        <li class="navItem" id="home"><a class="navActive" href="index.html">Home</a></li>
+        <li class="navItem" id="aiuto"><a href="help.html">Aiuto</a></li>
+        <li class="navItem" id="lingua"><a href="../help.html"></a></li>
+        <li class="navItem" id="contatti"><a href="contact.html">Contatti</a></li>
+    </ul>
+</nav>
+<br><br>
+
+
+	<h1 class="title"> Upload font personale</h1>
+	<div class="text">
+		Per poter utilizzare un font personale è necessario effettuarne l'upload della versione web.
+		Un web-font è dunque una traduzione del font interpretabile dai browser ed è ciò che permette di visualizzare
+		le scritte con uno stile a scelta dell'autore. Il web-font è costituito dai due seguenti files:
+		<ol>
+			<li>
+				Un css che definisce il nome e la sorgente del font tramite la direttiva @font-face. Questo file è
+				necessario e sufficiente al corretto upload se la sorgente è disponibile online.
+			</li>
+
+			<li>
+				Nei casi in cui la sorgente non è disponibile online il sistema di upload notifica la necessità di caricare
+				anche questa, ovvero un file di tipo .woff o .woff2 che contiene le informazioni su come visualizzare
+				il font.
+				La differenza tra i due formati è relativa alla compatibilità con i browsers, woff per i più datati e
+				woff2 per le versioni più recenti, come illustrato <a target=_blank href="https://transfonter.org/formats">
+				qui </a>.
+			</li>
+		</ol>
+		È possibile generare con facilità tutti i files necessari utilizzando un generico sito di generazione web-font,
+		come uno dei seguenti:
+		<ul>
+			<li>
+				<a target=_blank  href="https://transfonter.org/">www.transfonter.org</a>
+			</li>
+			<li>
+				<a target=_blank  href="https://www.fontsquirrel.com/tools/webfont-generator">
+					www.fontsquirrel.com </a>
+			</li>
+		</ul>
+		La schermata di upload, cui si accede tramite il pulsante <img alt="icona di upload" id="fakeIcon"
+																	   src="../img/iconupload.png">
+		della homepage, notifica eventuali mancanze o errori nei files, dando anche la possibilità di rinominare il font
+		in upload nel caso in cui si verificasse un conflitto con uno già presente nel nostro archivio.<br>
+		La gestione dei files caricati avviene intermente lato Client: i font personalizzati rimangono disponibili
+		finché la pagina del browser non viene chiusa.
+	</div>
+	<br><br>
+    <div class="separationLine"></div>
+
+
+    <h1 class="title">Controllo Contrasto</h1>
+<p class="text">
+    La Web Content Accessibility Guidelines definisce un metodo per il calcolo del contrasto attraverso l'utilizzo
+    della luminanza di un colore. Il contrasto viene calcolato tra due colori, solitamente tra il colore dello sfondo
+    e il colore del testo, in modo da poter valutare e quantificare l'accessibilità di lettura di una pagina Web.<br>
+    Il rapporto del contrasto va da un minimo di 1:1, quando i due colori sono uguali, a 21:1, quando si ha bianco con
+    nero.<br>
+    Sempre secondo lo standard emesso dal WCAG 2.0 si definisce testo largo se la dimensione del font è maggiore o
+    uguale a 24px; oppure se è maggiore o uguale a 18px ed è in grassetto (almeno 700 punti di spessore), altrimenti
+    si ha un testo normale.<br>
+    A secondo del rapporto ottenuto si ha:
+</p>
+<ol class="elenco" type="I">
+    <li class="listitem">Se il rapporto del contrasto (CR) è maggiore di 4.5 allora si ha la certificazione AA per il
+        testo normale.<br></li>
+    <li class="listitem">Se il CR è maggiore di 3 e il testo è largo si ottiene la certificazione AA.<br></li>
+    <li class="listitem">Se il CR è maggiore di 7 e il testo è normale si ha la certificazione AAA.<br></li>
+    <li class="listitem">Se il CR è maggiore di 4.5 e il testo è largo si ha la certificazione AAA.<br></li>
+</ol>
+
+
+</body>
+</html>

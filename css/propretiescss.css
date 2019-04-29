@@ -1,0 +1,264 @@
+.textprop {
+    margin: 0px;
+    padding-left: 0px;
+    width: 15%;
+    height: 4.5%;
+    font-size: 0.95vw;
+    text-align: left;
+    float: right;
+}
+
+.prop {
+    margin: 0px;
+    padding: 0px;
+    width: 55%;
+    align-content: center;
+    float: left;
+}
+.textpropName{
+    margin: 0;
+    padding: 0;
+    font-size: 1.1vw;
+    width: 35%;
+    float:left;
+}
+.help {
+    width: 5%;
+    border-style: none;
+    font-size: 1.3vw;
+    outline: none;
+    margin-right: 1%;
+    background-repeat: no-repeat;
+    cursor: help;
+    float: left;
+}
+
+
+.help:hover {
+    color:blue;
+    cursor: help;
+}
+
+.prop .down {
+    width: 80%;
+}
+
+.slider {
+    width: 80%;
+    float: left;
+}
+
+#normalstyle, #italicstyle, #normalvariant, #smallcapsvariant, #ltrdirection, #rtldirection {
+    width: 49%;
+    font-size: 80%;
+    padding: 0;
+}
+
+#leftalign, #centeralign, #rightalign, #justifyalign {
+    width: 23%;
+}
+
+#uppercasetransform, #lowercasetransform, #capitalizetransform {
+    width: 32%;
+    font-size: 75%;
+    padding: 0;
+}
+
+#uppercasetransform {
+    font-size: 70%;
+}
+
+#underlinedecoration, #overlinedecoration, #linethroughdecoration,#caratterejustify,#wordjustify,#autojustify {
+    width: 32%;
+    padding: 0;
+    font-size: 75%;
+}
+
+#solidstyledecoration, #dashedstyledecoration, #dottedstyledecoration, #wavystyledecoration, #doublestyledecoration {
+    width: 18.5%;
+    font-size: 67%;
+    padding: 0;
+}
+
+#slidershadowh, #slidershadowv {
+    width: 25%;
+}
+
+#shadowcolor {
+    float: right;
+    width: 15%;
+}
+
+#textshadowh, #textshadowv {
+    width: 13%;
+    float: left;
+    margin-left: 2%;
+}
+#fontcolor,#backgroundcolor{
+    float:left;
+    margin-right: 2%;
+}
+#textopacity{
+    float: right;
+}
+
+#slideropacity{
+    width: 40%;
+    float: left;
+}
+
+#AAnormal, #AAAnormal, #AAlarge, #AAAlarge {
+    margin-top: 8px;
+}
+
+#solidstyledecoration {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    -webkit-Text-decoration-line: underline;
+    -webkit-Text-decoration-style: solid;
+
+
+}
+
+#dashedstyledecoration {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    -webkit-Text-decoration-line: underline;
+    -webkit-Text-decoration-style: dashed;
+
+
+}
+
+#wavystyledecoration {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    -webkit-Text-decoration-line: underline;
+    -webkit-Text-decoration-style: wavy;
+
+
+}
+
+#dottedstyledecoration {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    -webkit-Text-decoration-line: underline;
+    -webkit-Text-decoration-style: dotted;
+
+
+}
+
+#doublestyledecoration {
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    -webkit-Text-decoration-line: underline;
+    -webkit-Text-decoration-style: double;
+
+
+}
+
+#italicstyle {
+    font-style: italic;
+}
+
+#smallcapsvariant {
+    font-variant: small-caps;
+}
+
+#overlinedecoration {
+    text-decoration-line: overline;
+    -webkit-Text-decoration-line: overline;
+}
+
+#underlinedecoration {
+    text-decoration-line: underline;
+    -webkit-Text-decoration-line: underline;
+
+}
+
+#linethroughdecoration {
+    text-decoration-line: line-through;
+    -webkit-Text-decoration-line: line-through;
+
+}
+
+.btnactive {
+    background-color: #55B6FF;
+    color: #f2f2f2;
+    outline: none;
+}
+
+.prop button:hover, .right.column button:hover {
+    background-color: #94dfff;
+    color: black;
+    outline: none;
+}
+
+
+.leftalign {
+    background-image: url("../img/leftblack.png"); /* 16px x 16px */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.leftalignactive, .leftalignactive:hover {
+    background-image: url("../img/leftwhite.png"); /* 16px x 16px */
+    background-color: #55B6FF; /* make the button transparent */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.rightalign {
+    background-image: url("../img/rightblack.png"); /* 16px x 16px */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.rightalignactive, .rightalignactive:hover {
+    background-image: url("../img/rightwhite.png"); /* 16px x 16px */
+    background-color: #55B6FF; /* make the button transparent */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.centeralign {
+    background-image: url("../img/centerblack.png"); /* 16px x 16px */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.centeralignactive, .centeralignactive:hover {
+    background-image: url("../img/centerwhite.png"); /* 16px x 16px */
+    background-color: #55B6FF; /* make the button transparent */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}
+
+.justifyalign {
+    background-image: url("../img/justifyblack.png"); /* 16px x 16px */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 15px;
+
+}
+
+.justifyalignactive, .justifyalignactive:hover {
+    background-image: url("../img/justifywhite.png"); /* 16px x 16px */
+    background-color: #55B6FF; /* make the button transparent */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px;
+}

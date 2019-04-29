@@ -1,0 +1,237 @@
+
+#up-icon {
+    position: absolute;
+    right: 10px;
+    z-index: 5;
+    margin-top: 5px;
+    min-height: 25px;
+    min-width: 25px;
+    max-height: 25px;
+    max-width: 25px;
+    background-image: url("../img/iconupload.png");
+    background-repeat: no-repeat;
+    border-style: none;
+    background-color: #f1f1f1;
+    outline: none;
+}
+
+#myInput {
+    width: 100%;
+    outline: none;
+}
+
+#output {
+    color: black;
+    margin: 3% auto;
+    font-size: 20px;
+}
+
+#drop_zone {
+    color: rgba(23, 118, 168, 0.85);
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    border: 3px dotted #1e90ff;
+    padding: 3%;
+    background-color: rgba(31, 181, 255, 0.05);
+}
+
+#drop_zone button {
+    margin: 1% 1% 0;
+    width: 95px;
+    height: 40px;
+    font-size: 18px;
+}
+
+#disclaimer:disabled:hover {
+    cursor: not-allowed;
+}
+
+#rename {
+    font-family: Arial, SansSerif;
+    width: 35%;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+}
+
+#rename::placeholder {
+    color: #9a9a9a;
+}
+
+#checkRename {
+    right: 0;
+    margin: 0;
+}
+
+#drop_zone #oldExample {
+    font-size: 20px;
+}
+
+#drop_zone p {
+    font-size: 16px;
+    margin: 1%;
+
+}
+
+#disclaimer {
+    cursor: initial;
+    transform: scale(1.4);
+}
+
+#disclaimer:hover {
+    transform: scale(2);
+}
+
+#disclaimer:disabled:hover {
+    transform: scale(1.4);
+}
+
+.old {
+    margin: 2% 0 3% 0;
+}
+
+.old #oldExample {
+    margin: 0 0 1% 0;
+}
+
+.button:hover {
+    color: #333;
+    background: #eeffff;
+    -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.modalbg {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 99999;
+    -moz-transition: all 0.7s ease-out;
+    -webkit-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    -transition-delay: 0.2s;
+    display: block;
+    pointer-events: none;
+}
+
+.modalbg .dialog {
+    padding: 1%;
+    width: max-content;
+    width: -moz-max-content;
+    height: max-content;
+    position: relative;
+    top: -4000px;
+    margin: 10% auto;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #ccc);
+    background: -webkit-linear-gradient(#fff, #ccc);
+    background: -o-linear-gradient(#fff, #ccc);
+    box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+}
+
+.modalbg .dialog .ie7 {
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#000', Direction=135, Strength=3);
+}
+
+.modalbg:target {
+    display: block;
+    pointer-events: auto;
+    background: rgba(4, 10, 30, 0.8);
+    -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.modalbg:target .dialog {
+    top: 0;
+    margin: 5% auto;
+    -moz-transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    -webkit-transition-delay: 0.4s;
+    -moz-transition-delay: 0.4s;
+    -o-transition-delay: 0.4s;
+    -transition-delay: 0.4s;
+}
+
+#close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+    -moz-transition: all 0.1s ease-out;
+    -webkit-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+}
+
+#close:hover {
+    background: #ff4d37;
+    -moz-transition: all 0.1s ease-out;
+    -webkit-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+#drop_zone .upHelp {
+    margin:0;
+    padding:0;
+    top:8px;
+
+    position: relative;
+    min-width: 24px;
+    width: 5%;
+    height: 4%;
+    color: inherit;
+    border: none;
+    cursor: help;
+    outline: inherit;
+    background-repeat: no-repeat;
+    background-image: url("../img/upHelp.png");
+    background-color: rgba(150,210,238,0);
+}
+
+#drop_zone .upHelp:hover {
+    color: inherit;
+    background-repeat: no-repeat;
+    background-image: url("../img/upHelpHover.png");
+
+}
+
+#drop_zone a{
+    text-decoration: none;
+}

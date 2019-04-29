@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>FonText</title>
+    <link rel="stylesheet" href="../css/styleCommon.css">
+    <link rel="stylesheet" href="../css/styleCommonHome.css">
+    <link rel="stylesheet" href="../css/propretiescss.css">
+    <link rel="stylesheet" href="../css/AllFont.css">
+    <link rel="stylesheet" href="../css/styleitem.css">
+    <link rel="stylesheet" href="../css/uploadCss.css">
+    <link rel="stylesheet" href="../css/styles/github.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="description"
+          content="FonText è un sito web per visualizzare un testo in un font con le relative proprietà css."/>
+    <meta name="keywords" content="keywords, font css propriety download"/>
+    <meta name="robots" content="index, follow"/>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/fonts.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/textchange.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="../js/helpline.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body onload="myLoad()">
+<div id="openModal" class="modalbg">
+    <div class="dialog">
+        <div id="drop_zone">
+            <a target="_blank" href="help.html">
+                <button type="button" class="upHelp"></button>
+            </a>
+            <input type="file" id="hiddenInput" hidden multiple accept=".css, .woff, .woff2">
+            <i> Rilascia i files o fai click </i> <br>
+
+            <div id="output"></div>
+            <div class="old" hidden>
+                <p id="oldExample"></p>
+                <input id="rename" autocomplete="off" type="text" oninput="changeRename()"
+                       placeholder="Scrivi qui il nuovo nome">
+                <label id="checkRename"> </label>
+            </div>
+            <p><input id="disclaimer" type="checkbox" disabled onclick="checkOn()"/>
+                Sto caricando un font legalmente utilizzabile.
+                Ho controllato con l'autore/EULA </p>
+            <button disabled id="confirm" onclick="confirmUpload()">Conferma</button>
+            <button disabled id="cancel" onclick="cancelUpload()">Cancella</button>
+        </div>
+        <a href="#close" title="Close" id="close" onclick="cancelUpload()">X</a>
+    </div>
+</div>
+
+<div class="overlay" id="overlaysizetext" onclick="off('overlaysizetext')">
+    <div class="overlaytext">La proprietà dimensione imposta la dimensione del carattere.
+    </div>
+</div>
+<div class="overlay" id="overlaystyletext" onclick="off('overlaystyletext')">
+    <div class="overlaytext">La proprietà stile imposta lo stile di un carettere, normale o obliquo.
+
+    </div>
+</div>
+<div class="overlay" id="overlayvarianttext" onclick="off('overlayvarianttext')">
+    <div class="overlaytext">In un carattere small-caps, tutte le lettere minuscole vengono convertite in lettere
+        maiuscole. Tuttavia, le lettere maiuscole convertite vengono visualizzate con caratteri più piccoli rispetto
+        alle lettere maiuscole originali nel testo.
+
+                La proprietà font-variant specifica se un testo deve essere visualizzato o meno in un carattere
+        small-caps.
+    </div>
+</div>
+<div class="overlay" id="overlayweighttext" onclick="off('overlayweighttext')">
+    <div class="overlaytext">La proprietà spessore imposta la visualizzazione di caratteri spessi o sottili nel
+        testo. <br> Da 100 (più leggero) a 900 (più spesso) con passo di 100.
+    </div>
+</div>
+<div class="overlay" id="overlaycolortext" onclick="off('overlaycolortext')">
+    <div class="overlaytext">FG - Il colore specifica il colore del testo.<br>
+        BG -La proprietà colore di sfondo imposta il colore di sfondo di un elemento.
+        Lo sfondo di un elemento è la dimensione totale dell'elemento, inclusi il riempimento e il bordo (ma non
+        il margine). Trasparente è predefinito.<br>
+        OP - La proprietà opacità imposta il livello di opacità per un elemento.
+        Il livello di opacità descrive il livello di trasparenza, dove 1 non è affatto trasparente, 0,5 è
+        trasparente al 50% e 0 è completamente trasparente.<br>
+    </div>
+</div>
+<div class="overlay" id="overlayaligntext" onclick="off('overlayaligntext')">
+    <div class="overlaytext">La proprietà di allineamento del testo specifica l'allineamento orizzontale del testo in un
+        elemento. <br> A sinistra, allinea il testo a sinistra. <br> A destra, allinea il testo a destra. <br> Centro,
+        centra il testo. <br> Giustificato, allunga le linee in modo che ogni riga abbia la stessa larghezza (come nei
+        giornali e nelle riviste).
+    </div>
+</div>
+<div class="overlay" id="overlayjustifytext" onclick="off('overlayjustifytext')">
+    <div class="overlaytext">
+        La proprietà giustificato specifica il metodo di giustificazione del testo quando il testo è impostato su
+        giustificato. <br>
+        Il browser determina l'algoritmo di giustificazione <br>
+        Parola aumenta / diminuisce lo spazio tra le parole riproducilo <br>
+        Carattere Aumenta / diminuisce lo spazio tra i caratteri <br>
+        Default è auto.
+    </div>
+</div>
+<div class="overlay" id="overlaytransformtext" onclick="off('overlaytransformtext')">
+    <div class="overlaytext">La proprietà text-transform controlla la maiuscola del testo. <br> Capitalizza, trasforma
+        il primo carattere di ogni parola in maiuscolo. <br> Maiuscolo, trasforma tutti i caratteri in maiuscolo. <br>
+        Minuscolo, trasforma tutti i caratteri in minuscolo.
+    </div>
+</div>
+<div class="overlay" id="overlaydlinetext" onclick="off('overlaydlinetext')">
+    <div class="overlaytext">La proprietà decorazione della linea imposta il tipo di decorazione del testo da usare
+        (come
+        sottolineato, overline, sbarrato).
+                <br> Sottolineato, specifica che una riga verrà visualizzata sotto il testo.
+                <br> Overline, Specifica che una riga verrà visualizzata sul testo.
+                <br> Sbarrato, specifica che una linea verrà visualizzata attraverso il testo.
+    </div>
+</div>
+<div class="overlay" id="overlaydstyletext" onclick="off('overlaydstyletext')">
+    <div class="overlaytext">La proprietà di stile della decorazione del testo imposta lo stile della decorazione del
+        testo (come solido, ondulato, punteggiato, tratteggiato, doppio).
+                <br> Solido, valore predefinito. La linea verrà visualizzata come una singola riga.
+                <br> Doppio. La linea verrà visualizzata come una doppia linea.
+                <br> Tratteggiato. La linea verrà visualizzata come una linea tratteggiata.
+                <br> Ondulato. La linea verrà visualizzata come una linea ondulata.
+                <br> Punteggiato. La linea verrà visualizzata come una linea tratteggiata.
+    </div>
+</div>
+<div class="overlay" id="overlaydcolortext" onclick="off('overlaydcolortext')">
+    <div class="overlaytext">La proprietà colore della decorazione del testo si occupa della colarazione della
+        decorazione.
+    </div>
+</div>
+<div class="overlay" id="overlaydirectiontext" onclick="off('overlaydirectiontext')">
+    <div class="overlaytext">La proprietà direzione specifica la direzione del testo / direzione di scrittura
+        all'interno di un elemento a livello di blocco.
+                <br> LTR. La direzione del testo va da sinistra a destra. Questo è il valore predefinito.
+                <br> RTL. La direzione del testo va da destra a sinistra.
+    </div>
+</div>
+
+<div class="overlay" id="overlaylettertext" onclick="off('overlaylettertext')">
+    <div class="overlaytext">La proprietà spazio tra le lettere aumenta o diminuisce lo spazio tra i caratteri in un
+        testo.
+    </div>
+</div>
+<div class="overlay" id="overlaywordtext" onclick="off('overlaywordtext')">
+    <div class="overlaytext">La proprietà spazio tra parola aumenta o diminuisce lo spazio tra le parole.
+
+
+    </div>
+</div>
+<div class="overlay" id="overlayheighttext" onclick="off('overlayheighttext')">
+    <div class="overlaytext">La proprietà altezza della linea specifica l'altezza di una linea.
+    </div>
+</div>
+<div class="overlay" id="overlayshadowtext" onclick="off('overlayshadowtext')">
+    <div class="overlaytext">La proprietà tombra del testo aggiunge ombra al testo.
+
+                Questa proprietà accetta un elenco di ombre separate da virgole da applicare al testo. Verticale,
+        orizzontale, a colori.
+    </div>
+</div>
+<div class="overlay" id="overlayblurtext" onclick="off('overlayblurtext')">
+    <div class="overlaytext">Aggiunge un'effetto sfumato al testo.
+    </div>
+</div>
+
+<div class="overlay" id="overlayindettext" onclick="off('overlayindettext')">
+    <div class="overlaytext">La proprietà indentazione specifica il rientro della prima riga in un blocco di testo.
+
+                Nota: i valori negativi sono consentiti. La prima riga sarà rientrata a sinistra se il valore è
+        negativo.
+    </div>
+</div>
+<nav class="nav">
+    <ul class="navList">
+        <li class="navItem" id="home"><a class="navActive" href="index.html">Home</a></li>
+        <li class="navItem" id="aiuto"><a href="help.html">Aiuto</a></li>
+        <li class="navItem" id="lingua"><a href="../index.html"></a></li>
+        <li class="navItem" id="contatti"><a href="contact.html">Contatti</a></li>
+    </ul>
+</nav>
+
+
+<div class="header">
+    FonText
+</div>
+
+<div class="container">
+    <div class="left column" id="left">
+        <div class="item">
+            <div class="help" onclick="onSize()">
+                ?
+            </div>
+            <div class="textpropName">
+                Dimensione
+            </div>
+
+
+            <div class="prop">
+                <input id="slidersize" name="foo" class="slider" type="range" min="10" max="60" step="1" value="35"
+                       oninput="slidersizechange()">
+                <div class="textprop" id="textsize"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="help" onclick="onStyle()">?
+            </div>
+            <div class="textpropName">
+
+                Stile
+            </div>
+            <div class="prop">
+                <button type=button id="normalstyle" class="btnactive" onclick="styleChangeNormal()"> Normale</button>
+                <button type=button id="italicstyle" onclick="styleChangeItalic()"> Obliquo</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="help" onclick="onWeight()">?
+            </div>
+            <div class="textpropName">
+
+                Spessore
+            </div>
+            <div class="prop">
+                <input id="sliderweight" class="slider" type="range" min="100" max="900" step="100" value="100"
+                       oninput="sliderWeightChange()">
+                <div class="textprop" id="textweight"></div>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="help" onclick="onVariant()">?
+            </div>
+
+            <div class="textpropName">
+
+                Font-Variant
+            </div>
+            <div class="prop">
+                <button type=button id="normalvariant" class="btnactive" onclick="variantChangeNormal()"> Normale
+                </button>
+                <button type=button id="smallcapsvariant" onclick="variantChangeSmallcaps()"> Small-Caps</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="help" onclick="onColor()">?
+            </div>
+
+            <div class="textpropName">
+
+                Colore FG/BG/OP
+            </div>
+
+            <div class="prop">
+                <input type="color" id="fontcolor" value=#000000 onchange="colorChange()">
+                <input type="color" id="backgroundcolor" value=#ffffff onchange="backgroundColorChange()">
+                <input id="slideropacity" class="slider" type="range" min="0" max="1" step="0.1" value="1"
+                       oninput="sliderOpacityChange()">
+                <div class="textprop" id="textopacity"></div>
+            </div>
+        </div>
+        <div class="item" id="textalign">
+            <div class="help" onclick="onAlign()">?
+            </div>
+
+            <div class="textpropName">
+
+                Allineamento
+            </div>
+            <div class="prop">
+                <button type=button id="leftalign" class="leftalignactive" onclick="alignLeftChange()"></button>
+                <button type=button id="centeralign" class="centeralign" onclick="alignCenterChange()"></button>
+                <button type=button id="rightalign" class="rightalign" onclick="alignRightChange()"></button>
+                <button type=button id="justifyalign" class="justifyalign" onclick="alignJustifyChange()"></button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="help" onclick="onMyJustify()">?
+            </div>
+
+            <div class="textpropName">
+
+                Giustificato
+            </div>
+
+            <div class="prop">
+                <button type=button id="autojustify" class="justify"
+                        onclick="autoChange()" disabled> Auto
+                </button>
+                <button type=button id="wordjustify" class="justify"
+                        onclick="wordChange()" disabled> Parola
+                </button>
+                <button type=button id="caratterejustify" class="justify"
+                        onclick="carattereChange()" disabled> Carattere
+                </button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="help" onclick="onTransform()">?
+            </div>
+
+            <div class="textpropName">
+
+                Text-Transform
+            </div>
+            <div class="prop">
+                <button type=button id="uppercasetransform"
+                        onclick="upperTransformChange()"> Maiuscolo
+                </button>
+                <button type=button id="lowercasetransform"
+                        onclick="lowerTransformChange()"> minuscolo
+                </button>
+                <button type=button id="capitalizetransform"
+                        onclick="capitalizeTransformChange()"> Camel
+                </button>
+            </div>
+        </div>
+        <div id="decoration-line" class="item">
+            <div class="help" onclick="onDLine()">?
+            </div>
+
+            <div class="textpropName">
+
+                Linea Decorazione
+            </div>
+            <div class="prop">
+                <button type=button class="linedecoration" id="underlinedecoration"
+                        onclick="underlineDecorationChange()"> U
+                </button>
+                <button type=button class="linedecoration" id="overlinedecoration"
+                        onclick="overlineDecorationChange()"> O
+                </button>
+                <button type=button class="linedecoration" id="linethroughdecoration"
+                        onclick="linethroughDecorationChange()"> M
+                </button>
+            </div>
+        </div>
+        <div id="decoration-style" class="item">
+            <div class="help" onclick="onDStyle()">?
+            </div>
+
+            <div class="textpropName">
+
+                Stile Decorazione
+            </div>
+            <div class="prop">
+                <button type=button id="solidstyledecoration" class="btnactive"
+                        onclick="solidDecorationChange()"> Solido
+                </button>
+                <button type=button id="doublestyledecoration"
+                        onclick="doubleDecorationChange()"> Doppio
+                </button>
+                <button type=button id="dottedstyledecoration"
+                        onclick="dottedDecorationChange()"> Punti
+                </button>
+                <button type=button id="dashedstyledecoration"
+                        onclick="dashedDecorationChange()"> Trattini
+                </button>
+                <button type=button id="wavystyledecoration"
+                        onclick="wavyDecorationChange()"> Onde
+                </button>
+            </div>
+        </div>
+        <div id="decoration-color" class="item">
+            <div class="help" onclick="onDColor()">?
+            </div>
+
+            <div class="textpropName">
+
+                Colore Decoraz.
+            </div>
+            <div class="prop">
+                <input type="color" id="decorationcolor" value=#000000 onchange="decorationColorChange()">
+            </div>
+        </div>
+
+    </div>
+    <div class="center column" id="center">
+        <div class="up">
+            <div class="search-container">
+                <button type=button id="up-icon" onclick="uploadClick()"></button>
+
+                <div class="autocomplete" id="search">
+                    <input onclick="custom()" autocomplete="off" oninput="doubleCustom()" id="myInput" type="text"
+                           name="searchBar" placeholder="Cerca un font">
+
+
+                </div>
+            </div>
+            <textarea autocomplete="off" id="mytext" class="textarea"
+                      onclick="this.select()"> Inserisci testo</textarea>
+        </div>
+        <div class="down">
+            <div id="direction" class="item dx">
+                <div class="help" onclick="onDirection()">?
+                </div>
+
+                <div class="textpropName">
+
+                    Direzione
+                </div>
+                <div class="prop">
+                    <button type=button class="btnactive" id="ltrdirection" onclick="ltrDirectionChange()" value="0">
+                        LTR
+                    </button>
+                    <button type=button id="rtldirection" onclick="rtlDirectionChange()" value="0"> RTL</button>
+                </div>
+            </div>
+            <div id="letterspacing" class="item dx">
+                <div class="help" onclick="onLetter()">?
+                </div>
+                <div class="textpropName">
+
+                    Spazio Lettere
+                </div>
+                <div class="prop">
+                    <input id="sliderletter" class="slider" type="range" min="0" max="10" step="1" value="1"
+                           oninput="sliderLetterChange()">
+                    <div class="textprop" id="textletter"></div>
+
+                </div>
+            </div>
+            <div id="wordspacing" class="item dx">
+
+                <div class="help" onclick="onWord()">?
+                </div>
+                <div class="textpropName">
+
+                    Spazio Parole
+                </div>
+
+                <div class="prop">
+                    <input id="sliderword" class="slider" type="range" min="-10" max="30" step="1" value="1"
+                           oninput="sliderWordChange()">
+                    <div class="textprop" id="textword"></div>
+
+
+                </div>
+            </div>
+            <div id="lineheight" class="item dx">
+                <div class="help" onclick="onHeight()">?
+                </div>
+                <div class="textpropName">
+
+                    Altezza Linea
+                </div>
+
+
+                <div class="prop">
+                    <input id="sliderheight" class="slider" type="range" min="20" max="90" step="1" value="53"
+                           oninput="sliderHeightChange()">
+                    <div class="textprop" id="textheight"></div>
+
+
+                </div>
+            </div>
+            <div id="textindent" class="item dx">
+                <div class="help" onclick="onIndent()">?
+                </div>
+                <div class="textpropName">
+
+                    Indentazione
+                </div>
+                <div class="prop">
+                    <input id="sliderindent" class="slider" type="range" min="-30" max="120" step="1" value="0"
+                           oninput="sliderIndentChange()">
+                    <div class="textprop" id="text2indent"></div>
+
+
+                </div>
+            </div>
+            <div id="textshadow" class="item dx">
+                <div class="help" onclick="onShadow()">?
+                </div>
+                <div class="textpropName">
+                    Ombreggiatura
+                </div>
+
+                <div class="prop">
+                    <input id="slidershadowh" class="slider" type="range" min="0" max="10" step="1" value="0"
+                           oninput="sliderShadowHChange()">
+                    <div class="textprop" id="textshadowh"></div>
+
+                    <input id="slidershadowv" class="slider" type="range" min="0" max="10" step="1" value="0"
+                           oninput="sliderShadowVChange()">
+                    <div class="textprop" id="textshadowv"></div>
+
+                    <input type="color" id="shadowcolor" value=#000000 onchange="shadowColorChange()">
+                </div>
+            </div>
+            <div id="blur" class="item dx">
+                <div class="help" onclick="onBluer()">?
+                </div>
+                <div class="textpropName">
+
+                    Sfumato
+                </div>
+
+
+                <div class="prop">
+                    <input id="slidershadowb" class="slider" type="range" min="0" max="50" step="1" value="0"
+                           oninput="sliderShadowBChange()">
+                    <div class="textprop" id="textshadowb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right column">
+        <pre id="pre"><code class="css" id="mycss"></code></pre>
+
+
+        <div class="item">
+            <div id="normalText">
+                Testo normale:
+                <span class="item" id="AAnormal">
+                        WCAG AA
+                    </span>
+                <span class="item" id="AAAnormal">
+                        WCAG AAA
+                    </span>
+            </div>
+            <div id="largeText">
+                Testo largo:
+                <span class="item" id="AAlarge">
+                        WCAG AA
+                    </span>
+                <span class="item" id="AAAlarge">
+                        WCAG AAA
+                    </span>
+            </div>
+            <div class="contrast">
+                <span>
+                Rapporto Contrasto:
+                </span>
+                <span id="contrasto">
+
+                </span>
+            </div>
+            <button type=button id="clipboard" onclick="toClipBoard()"></button>
+
+            <button type=button id="download" onclick="css()"></button>
+            <div id="snackbar">CSS copiato nella clipboard</div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

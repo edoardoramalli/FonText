@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>FonText</title>
+    <link rel="stylesheet" href="../css/styleCommon.css">
+    <link rel="stylesheet" href="../css/contactCommon.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/index.js"></script>
+
+</head>
+<body onload="getInfo()">
+<nav class="nav">
+    <ul class="navList">
+        <li class="navItem" id="home"><a class="navActive" href="index.html">Home</a></li>
+        <li class="navItem" id="aiuto"><a href="help.html">Aiuto</a></li>
+        <li class="navItem" id="lingua"><a href="../contact.html"></a></li>
+        <li class="navItem" id="contatti"><a href="contact.html">Contatti</a></li>
+    </ul>
+</nav>
+<br><br>
+
+<h1 class="title">Scopo del sito</h1>
+<p class="text">
+    Il sito permette di realizzare in modo rapido e intuitivo un file css con cui modificare lo stile di scrittura del
+    proprio sito web, utilizzando come font uno tra i numerosi presenti nel nostro archivio oppure caricandone uno
+    personale (la gestione di un font personale avviene interamente lato Client, rendendolo visibile solo all'utente
+	che ne ha fatto upload finché la pagina non viene chiusa).<br>
+    Tramite un'interfaccia interattiva ricca di slider e bottoni è possibile cambiare le numerose proprietà senza sforzo,
+    osservando in tempo reale i cambiamenti del testo e del css di riferimento; una volta ottenuti i risultati voluti
+	basta premere un pulsante per copiare il file nei propri appunti o avviare il download.<br>
+    Viene inoltre fornita una valutazione dell'accessibilità del web design ottenuta verificando il soddisfacimento
+    delle <a href="https://www.w3.org/Translations/WCAG20-it/"> Linee guida per l'accessibilità dei contenuti Web
+	(WCAG) 2.0</a> e del contrast ratio, ovvero il calcolo del contrasto tra colori del testo e dello sfondo.
+    <br> <br>
+    Questo sito Web è stato realizzato per il corso di Progettazione e Produzione Multimediale di Ingegneria Informatica
+    dell'Università degli studi di Firenze, A.A 2017/2018.
+</p>
+<div class="separationLine"></div>
+<h1 class="title">Autori</h1>
+
+
+<div class="row2">
+    <div class="column2">
+        <h2>Francesco Scandiffio</h2>
+        <p>Pistoia. Studente di Ingegneria informatica presso l'università degli studi di Firenze.<br>
+            Contatta: <a href="mailto:francesco.scandiffio@stud.unifi.it">francesco.scandiffio@stud.unifi.it</a>
+        </p>
+    </div>
+    <div class="column2">
+        <h2>Edoardo Ramalli</h2>
+        <p>Firenze. Studente di Ingegneria informatica presso l'università degli studi di Firenze.<br>
+            Contatta: <a href="mailto:edoardo.ramalli@stud.unifi.it">edoardo.ramalli@stud.unifi.it</a>
+        </p>
+    </div>
+</div>
+<div id="conta">
+    Numero visite :
+    <span id="numero"></span>
+</div>
+</div>
+</body>
+</html>
